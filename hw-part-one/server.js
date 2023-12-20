@@ -27,7 +27,19 @@ app.get('/magic/:question', (req, res) => {
     res.send(`<h2>${req.params.question}?</h2><h1>${magicArr[Math.floor(Math.random() * 20)]}</h1>`)
 })
 
+// Fibonnaci
+
+app.get ('/fibonacci/:num', (req, res) => {
+    let num1 = 5 * ((parseInt(req.params.num)) ** 2) + 4
+    let num2 = 5 * ((parseInt(req.params.num)) ** 2) - 4
+    if ((Number.isInteger(Math.sqrt(num1))) || (Number.isInteger(Math.sqrt(num2)))) {
+      res.send('<h1>Very good. It is Fibonnaci.</h1>')
+    } else {
+      res.send('<h1>I can tell this is not a fibonacci number.</h1>')
+    }
+})
 
 app.listen(port, () => {
     console.log('It is working')
 })
+
